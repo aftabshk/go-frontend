@@ -5,7 +5,7 @@ import {TouchableWithoutFeedback} from "react-native-web";
 const Stone = function () {
     return (
         <TouchableWithoutFeedback>
-            <View style={styles.stone}></View>
+            <View style={styles.stone}/>
         </TouchableWithoutFeedback>
     );
 };
@@ -17,7 +17,7 @@ const styles = StyleSheet.create({
         borderRadius: 50 / 2,
         backgroundColor: "black",
         alignItems: "center",
-        justifyContent: "center",
+        justifyContent: "center"
     },
 });
 

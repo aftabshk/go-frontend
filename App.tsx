@@ -1,10 +1,14 @@
 import React from 'react';
 import {StyleSheet, View} from "react-native";
+import Table from "./components/Table";
 import Board from "./components/Board";
 
 export default function App() {
     return (
-        <View style={styles.container}><Board/></View>
+        <View style={styles.container}>
+            <Board/>
+            <Table/>
+        </View>
     );
 }
 
@@ -13,6 +17,7 @@ const styles = StyleSheet.create({
         flex: 1,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff'
+        backgroundColor: '#fff',
+        position: "relative"
     }
 });
