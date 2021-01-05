@@ -6,8 +6,8 @@ import Board from "./components/Board";
 export default function App() {
     return (
         <View style={styles.container}>
-            <Board/>
             <Table/>
+            <Board/>
         </View>
     );
 }
