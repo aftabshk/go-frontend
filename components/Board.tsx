@@ -2,10 +2,10 @@ import React from "react";
 import {StyleSheet, View} from "react-native";
 import Row from "./Row";
 
-const Board = function () {
+const Board = function (props) {
     return <View style={styles.board}>{
         new Array(9).fill("").map(() => {
-            return <Row/>
+            return <Row currentColor={props.currentColor} playStone={props.playStone}/>
         })}</View>
 };
 

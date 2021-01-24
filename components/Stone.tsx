@@ -2,11 +2,16 @@ import React, {useState} from "react";
 import {StyleSheet, View} from "react-native";
 import {TouchableWithoutFeedback} from "react-native-web";
 
-const Stone = function () {
+const Stone = function (props) {
     const [style, setStyle] = useState(styles.hiddenStone)
 
     const playStone = function () {
-        setStyle(styles.stone)
+        if (props.currentColor == "BLACK")
+            setStyle(styles.blackStone)
+        else
+            setStyle(styles.whiteStone)
+
+        props.playStone()
     }
 
     return (
@@ -17,11 +22,19 @@ const Stone = function () {
 };
 
 const styles = StyleSheet.create({
-    stone: {
+    blackStone: {
         width: 50,
         height: 50,
         borderRadius: 50 / 2,
         backgroundColor: "black",
+        alignItems: "center",
+        justifyContent: "center"
+    },
+    whiteStone: {
+        width: 50,
+        height: 50,
+        borderRadius: 50 / 2,
+        backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center"
     },
