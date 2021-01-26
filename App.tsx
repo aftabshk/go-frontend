@@ -1,6 +1,6 @@
 import React from 'react';
-import Game from "./components/Game";
+import GameComponent from "./components/GameComponent";
 
 export default function App() {
-    return <Game/>;
+    return <GameComponent/>;
 }

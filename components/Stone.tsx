@@ -7,12 +7,14 @@ const Stone = function (props) {
     const [style, setStyle] = useState(styles.hiddenStone)
 
     const playStone = function () {
+        const isPlayed = props.placeStone(new Point(props.rowIndex, props.columnIndex))
+
+        if (isPlayed) return
+
         if (props.currentColor == "BLACK")
             setStyle(styles.blackStone)
         else
             setStyle(styles.whiteStone)
-
-        props.playStone(new Point(props.rowIndex, props.columnIndex))
     }
 
     return (

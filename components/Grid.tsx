@@ -2,7 +2,10 @@ import {StyleSheet, View} from "react-native";
 import React from "react";
 
 const Grid = function () {
-    return <View style={styles.grid} pointerEvents={"none"}/>;
+    return <View
+        style={styles.grid}
+        pointerEvents={"none"}
+    />;
 };
 
 const styles = StyleSheet.create({
