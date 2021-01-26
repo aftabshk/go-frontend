@@ -1,6 +1,7 @@
 import React, {useState} from "react";
 import {StyleSheet, View} from "react-native";
 import {TouchableWithoutFeedback} from "react-native-web";
+import Point from "../domain/Point"
 
 const Stone = function (props) {
     const [style, setStyle] = useState(styles.hiddenStone)
@@ -11,7 +12,7 @@ const Stone = function (props) {
         else
             setStyle(styles.whiteStone)
 
-        props.playStone()
+        props.playStone(new Point(props.rowIndex, props.columnIndex))
     }
 
     return (

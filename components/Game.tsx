@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {StyleSheet, View} from "react-native";
 import Table from "./Table";
 import Board from "./Board";
+import Point from "../domain/Point";
 
 class Game extends Component {
     constructor(props) {
@@ -24,8 +25,9 @@ class Game extends Component {
         }
     }
 
-    playStone() {
-        this.setState({...this.state, players: this.state.game.players.reverse()})
+    playStone(point: Point) {
+        const player = {...this.state.game.players[0], moves: [...this.state.game.players[0].moves, point]}
+        this.setState({...this.state, game: {players: [this.state.game.players[1], player]}})
     }
 
 

@@ -4,8 +4,8 @@ import Row from "./Row";
 
 const Board = function (props) {
     return <View style={styles.board}>{
-        new Array(9).fill("").map(() => {
-            return <Row currentColor={props.currentColor} playStone={props.playStone}/>
+        new Array(9).fill("").map((_, index) => {
+            return <Row rowIndex={index} currentColor={props.currentColor} playStone={props.playStone}/>
         })}</View>
 };
 
