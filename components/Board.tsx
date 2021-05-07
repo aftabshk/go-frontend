@@ -15,9 +15,7 @@ const Board = function (props) {
 
 const styles = StyleSheet.create({
     board: {
-        position: "absolute",
-        backgroundColor: "#f6d887",
-        zIndex: -1
+        position: "absolute"
     }
 });
 

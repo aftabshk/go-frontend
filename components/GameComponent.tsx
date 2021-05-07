@@ -42,11 +42,11 @@ class GameComponent extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        flex: 1,
+        width: 450,
+        height: 450,
         alignItems: 'center',
         justifyContent: 'center',
-        backgroundColor: '#fff',
-        position: "relative"
+        backgroundColor: "#f6d887",
     }
 });
 
