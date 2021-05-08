@@ -6,8 +6,9 @@ const Row = function (props) {
     return <View style={styles.row}>{
         new Array(9).fill("").map((_, index) => {
             return <Stone
-                rowIndex={props.rowIndex}
-                columnIndex={index}
+                key={`stone-${props.rowIndex}-${index}`}
+                x={props.rowIndex + 1}
+                y={index + 1}
                 currentColor={props.currentColor}
                 placeStone={props.placeStone}
             />

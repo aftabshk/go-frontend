@@ -4,8 +4,8 @@ import TableRow from "./TableRow";
 
 const Table = function () {
     return <View style={styles.table} pointerEvents={"none"}>{
-        new Array(8).fill("").map(() => {
-            return <TableRow/>
+        new Array(8).fill("").map((_, index) => {
+            return <TableRow rowIndex={index} key={`table-row-${index}`}/>
         })}</View>
 }
 

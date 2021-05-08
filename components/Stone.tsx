@@ -1,15 +1,30 @@
 import React, {useState} from "react";
-import {StyleSheet, View} from "react-native";
-import {TouchableWithoutFeedback} from "react-native-web";
+import {StyleSheet, TouchableWithoutFeedback, View} from "react-native";
 import Point from "../domain/Point"
 
 const Stone = function (props) {
     const [style, setStyle] = useState(styles.hiddenStone)
 
     const playStone = function () {
-        const isPlayed = props.placeStone(new Point(props.rowIndex, props.columnIndex))
+        const isPlayed = props.placeStone(new Point(props.x, props.y))
+        const gameId = "bd13002c-bf17-41b2-9fd3-15b81395e74b"
 
         if (isPlayed) return
+
+        fetch(`http://localhost:8080/games/${gameId}/play`, {
+            method: 'POST',
+            headers: {
+                Accept: 'application/json',
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                color: props.currentColor,
+                point: {
+                    x: props.x,
+                    y: props.y
+                }
+            })
+        })
 
         if (props.currentColor == "BLACK")
             setStyle(styles.blackStone)
@@ -45,7 +60,6 @@ const styles = StyleSheet.create({
         width: 50,
         height: 50,
         borderRadius: 50 / 2,
-        backgroundColor: "black",
         alignItems: "center",
         justifyContent: "center",
         opacity: 0
