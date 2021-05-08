@@ -11,7 +11,8 @@ const Table = function () {
 
 const styles = StyleSheet.create({
     table: {
-        position: "absolute"
+        position: "absolute",
+        borderWidth: 1
     }
 });
 
