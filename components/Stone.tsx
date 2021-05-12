@@ -1,10 +1,8 @@
-import React, {useState} from "react";
+import React from "react";
 import {StyleSheet, TouchableWithoutFeedback, View} from "react-native";
 import Point from "../domain/Point"
 
 const Stone = function (props) {
-    const [style, setStyle] = useState(styles.hiddenStone)
-
     const playStone = function () {
         const isPlayed = props.placeStone(new Point(props.x, props.y))
         const gameId = "bd13002c-bf17-41b2-9fd3-15b81395e74b"
@@ -25,11 +23,18 @@ const Stone = function (props) {
                 }
             })
         })
+    }
 
-        if (props.currentColor == "BLACK")
-            setStyle(styles.blackStone)
-        else
-            setStyle(styles.whiteStone)
+    const coordinates = `${props.x}, ${props.y}`
+    const color = props.boardState && props.boardState[coordinates] && props.boardState[coordinates].color
+
+    let style = styles.hiddenStone
+
+    if (color == "WHITE") {
+        style = styles.whiteStone
+    }
+    if (color == "BLACK") {
+        style = styles.blackStone
     }
 
     return (

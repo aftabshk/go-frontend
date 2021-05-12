@@ -7,6 +7,7 @@ const Row = function (props) {
         new Array(9).fill("").map((_, index) => {
             return <Stone
                 key={`stone-${props.rowIndex}-${index}`}
+                boardState={props.boardState}
                 x={props.rowIndex + 1}
                 y={index + 1}
                 currentColor={props.currentColor}

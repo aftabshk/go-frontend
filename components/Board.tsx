@@ -8,6 +8,7 @@ const Board = function (props) {
             return <Row
                 key={`row-${index}`}
                 rowIndex={index}
+                boardState={props.board.state}
                 currentColor={props.currentColor}
                 placeStone={props.placeStone}
             />
