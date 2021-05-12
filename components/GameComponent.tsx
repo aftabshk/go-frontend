@@ -3,7 +3,7 @@ import {StyleSheet, View} from "react-native";
 import Table from "./Table";
 import Board from "./Board";
 import Point from "../domain/Point";
-``
+
 class GameComponent extends Component {
     constructor(props) {
         super(props);
@@ -45,11 +45,8 @@ class GameComponent extends Component {
     }
 
     private isPlayed(point) {
-        return this.state.game.players.some((player) => {
-            return player.moves.some((move) => {
-                return move.x == point.x && move.y == point.y
-            })
-        })
+        const coordinates = `${point.x}, ${point.y}`
+        return this.state.game.board.state[coordinates] != undefined
     }
 
     private addStone(point) {
