@@ -2,6 +2,7 @@ import React, {Component} from "react";
 import {StyleSheet, View} from "react-native";
 import Table from "./Table";
 import Board from "./Board";
+import httpClient from "../HttpClient";
 
 class Game extends Component {
     constructor(props) {
@@ -15,9 +16,7 @@ class Game extends Component {
     }
 
     componentDidMount() {
-        fetch(`http://localhost:8080/games/${this.props.gameId}`).then((res) => {
-            return res.json()
-        }).then(game => {
+        httpClient.get(`/games/${this.props.gameId}`).then(game => {
             this.setState({game: game})
         })
     }
@@ -45,7 +44,11 @@ class Game extends Component {
 
     isPlayed(point) {
         const coordinates = `${point.x}, ${point.y}`
-        return this.state.game.board.state[coordinates] != undefined
+        return this.isPointOccupiedOnBoard(coordinates)
+    }
+
+    isPointOccupiedOnBoard(coordinates) {
+        return this.state.game.board.state[coordinates] !== undefined;
     }
 
     addStone(point) {

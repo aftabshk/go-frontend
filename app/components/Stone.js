@@ -1,5 +1,6 @@
 import React from "react";
 import {StyleSheet, TouchableWithoutFeedback, View} from "react-native";
+import httpClient from "../HttpClient";
 
 const Stone = function (props) {
     const playStone = function () {
@@ -8,19 +9,12 @@ const Stone = function (props) {
 
         if (isPlayed) return
 
-        fetch(`http://localhost:8080/games/${gameId}/play`, {
-            method: 'POST',
-            headers: {
-                Accept: 'application/json',
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({
-                color: props.currentColor,
-                point: {
-                    x: props.x,
-                    y: props.y
-                }
-            })
+        httpClient.post(`/games/${gameId}/play`, {
+            color: props.currentColor,
+            point: {
+                x: props.x,
+                y: props.y
+            }
         })
     }
 
