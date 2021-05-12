@@ -1,10 +1,9 @@
 import React from "react";
 import {StyleSheet, TouchableWithoutFeedback, View} from "react-native";
-import Point from "../domain/Point"
 
 const Stone = function (props) {
     const playStone = function () {
-        const isPlayed = props.placeStone(new Point(props.x, props.y))
+        const isPlayed = props.placeStone({x: props.x, y: props.y})
         const gameId = "bd13002c-bf17-41b2-9fd3-15b81395e74b"
 
         if (isPlayed) return

@@ -2,9 +2,8 @@ import React, {Component} from "react";
 import {StyleSheet, View} from "react-native";
 import Table from "./Table";
 import Board from "./Board";
-import Point from "../domain/Point";
 
-class GameComponent extends Component {
+class Game extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -23,7 +22,7 @@ class GameComponent extends Component {
         })
     }
 
-    placeStone(point: Point) {
+    placeStone(point) {
         if (this.isPlayed(point))
             return true
         this.setState({game: this.addStone(point)})
@@ -44,12 +43,12 @@ class GameComponent extends Component {
         );
     }
 
-    private isPlayed(point) {
+    isPlayed(point) {
         const coordinates = `${point.x}, ${point.y}`
         return this.state.game.board.state[coordinates] != undefined
     }
 
-    private addStone(point) {
+    addStone(point) {
         const game = {...this.state.game}
         const color = game.players[0].stoneColor
         game.players[0].moves.push(point)
@@ -69,4 +68,4 @@ const styles = StyleSheet.create({
     }
 });
 
-export default GameComponent
+export default Game
