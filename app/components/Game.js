@@ -10,7 +10,8 @@ class Game extends Component {
         this.state = {
             game: {
                 players: [],
-                board: {}
+                board: {},
+                currentPlayer: "BLACK"
             }
         }
     }
@@ -21,43 +22,24 @@ class Game extends Component {
         })
     }
 
-    placeStone(point) {
-        if (this.isPlayed(point))
-            return true
-        this.setState({game: this.addStone(point)})
+    placeStone(game) {
+        this.setState({game: {...game}})
         return false
     }
 
     render() {
-        const currentStone = (this.state.game.players[0] && this.state.game.players[0].stoneColor) || "WHITE"
+        const currentStone = this.state.game.currentPlayer
         return (
             <View style={styles.container}>
                 <Table/>
                 <Board
+                    gameId={this.props.gameId}
                     currentColor={currentStone}
                     board={this.state.game.board}
                     placeStone={this.placeStone.bind(this)}
                 />
             </View>
         );
-    }
-
-    isPlayed(point) {
-        const coordinates = `${point.x}, ${point.y}`
-        return this.isPointOccupiedOnBoard(coordinates)
-    }
-
-    isPointOccupiedOnBoard(coordinates) {
-        return this.state.game.board.state[coordinates] !== undefined;
-    }
-
-    addStone(point) {
-        const game = {...this.state.game}
-        const color = game.players[0].stoneColor
-        game.players[0].moves.push(point)
-        game.players = game.players.reverse()
-        game.board.state[`${point.x}, ${point.y}`] = {color: color, point: point}
-        return game
     }
 }
 

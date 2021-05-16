@@ -4,7 +4,7 @@ import {StyleSheet, View} from "react-native";
 
 export default function App() {
     return <View style={styles.container}>
-        <Game gameId={"bd13002c-bf17-41b2-9fd3-15b81395e74b"}/>
+        <Game gameId={"1e28303d-6221-47f9-8dd0-5015454ba181"}/>
     </View>;
 }
 
