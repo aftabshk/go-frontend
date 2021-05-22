@@ -1,6 +1,7 @@
 import React, {Component} from "react";
 import {StyleSheet, TouchableWithoutFeedback, View} from "react-native";
 import httpClient from "../HttpClient";
+import {Image} from "react-native-web";
 
 class Stone extends Component {
     constructor(props) {
@@ -37,17 +38,20 @@ class Stone extends Component {
         const color = this.props.boardState && this.props.boardState[coordinates] && this.props.boardState[coordinates].color
 
         let style = styles.hiddenStone
+        let imageSource = ""
 
         if (color === "WHITE") {
             style = styles.whiteStone
+            imageSource = require("../assets/white-stone.png")
         }
         if (color === "BLACK") {
             style = styles.blackStone
+            imageSource = require("../assets/black-stone.png")
         }
 
         return (
             <TouchableWithoutFeedback onPress={this.playStone.bind(this)}>
-                <View style={style}/>
+                <Image source={imageSource} style={style}/>
             </TouchableWithoutFeedback>
         );
     }
@@ -58,7 +62,6 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderRadius: 60 / 2,
-        backgroundColor: "black",
         alignItems: "center",
         justifyContent: "center"
     },
@@ -66,7 +69,6 @@ const styles = StyleSheet.create({
         width: 60,
         height: 60,
         borderRadius: 60 / 2,
-        backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center"
     },
