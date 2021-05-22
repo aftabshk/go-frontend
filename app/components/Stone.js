@@ -55,25 +55,25 @@ class Stone extends Component {
 
 const styles = StyleSheet.create({
     blackStone: {
-        width: 50,
-        height: 50,
-        borderRadius: 50 / 2,
+        width: 60,
+        height: 60,
+        borderRadius: 60 / 2,
         backgroundColor: "black",
         alignItems: "center",
         justifyContent: "center"
     },
     whiteStone: {
-        width: 50,
-        height: 50,
-        borderRadius: 50 / 2,
+        width: 60,
+        height: 60,
+        borderRadius: 60 / 2,
         backgroundColor: "white",
         alignItems: "center",
         justifyContent: "center"
     },
     hiddenStone: {
-        width: 50,
-        height: 50,
-        borderRadius: 50 / 2,
+        width: 60,
+        height: 60,
+        borderRadius: 60 / 2,
         alignItems: "center",
         justifyContent: "center",
         opacity: 0
