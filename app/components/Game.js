@@ -72,8 +72,8 @@ class Game extends Component {
 
 const styles = StyleSheet.create({
     container: {
-        width: 540,
-        height: 540,
+        width: 600,
+        height: 600,
         alignItems: 'center',
         justifyContent: 'center',
         backgroundColor: "#dcb35c",
