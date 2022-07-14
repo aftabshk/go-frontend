@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-import {StyleSheet, TouchableWithoutFeedback, View} from "react-native";
+import {StyleSheet, TouchableWithoutFeedback} from "react-native";
 import httpClient from "../HttpClient";
 import {Image} from "react-native-web";
 
